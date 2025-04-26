@@ -29,11 +29,16 @@
 
 ## Technical Stack
 
+> **Version Information Note**: The versions listed below are current as of April 2025. Future readers (including AI assistants) should verify these versions against official sources. If your knowledge cutoff date is after April 2025, please ask for updated documentation or check the latest versions from:
+> - Next.js: https://nextjs.org/blog
+> - Tailwind CSS: https://tailwindcss.com/blog
+> - React: https://react.dev/blog
+
 ### Frontend
-- Next.js 14
+- Next.js 14.x (stable)
 - React 18
 - TypeScript
-- Tailwind CSS
+- Tailwind CSS 3.x with @tailwindcss/forms plugin
 - React Hook Form
 - Zod
 
@@ -65,17 +70,17 @@
    - Validation
 
 2. **UI Components**
-   - Input
-   - Select
-   - Checkbox
-   - Radio
-   - Button
+   - Input (using Tailwind CSS form classes)
+   - Select (using Tailwind CSS form classes)
+   - Checkbox (using Tailwind CSS form classes)
+   - Radio (using Tailwind CSS form classes)
+   - Button (using Tailwind CSS utility classes)
 
 3. **Layout Components**
-   - Container
-   - Grid
-   - Section
-   - Card
+   - Container (using Tailwind CSS utility classes)
+   - Grid (using Tailwind CSS grid utilities)
+   - Section (using Tailwind CSS utility classes)
+   - Card (using Tailwind CSS utility classes)
 
 ## Integration Points
 

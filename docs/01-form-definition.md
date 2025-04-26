@@ -15,9 +15,12 @@
 
 ### Field Definitions
 ```typescript
+// Field types must be strictly typed
+type FieldType = 'text' | 'email' | 'number' | 'date' | 'select' | 'checkbox' | 'radio' | 'file';
+
 interface FieldDefinition {
   name: string;
-  type: 'text' | 'email' | 'number' | 'date' | 'select' | 'checkbox' | 'radio' | 'file';
+  type: FieldType;
   label: string;
   required: boolean;
   validation?: {
@@ -27,9 +30,61 @@ interface FieldDefinition {
   };
   options?: string[]; // For select, checkbox, radio fields
 }
+
+// Form data must use strict typing
+type FormData = {
+  [section: string]: {
+    [field: string]: string | number | string[] | boolean;
+  };
+};
+
+// Field paths must be strictly typed
+type FormFieldPath = 
+  | `sectionName.${keyof SectionData}`
+  | `otherSection.${keyof OtherSectionData}`;
 ```
 
 ## Form Configuration
+
+### Component Structure
+```tsx
+// Required component hierarchy
+<DynamicForm>
+  <FormProvider {...methods}>
+    <form>
+      <FormSection>
+        <FormField />
+      </FormSection>
+    </form>
+  </FormProvider>
+</DynamicForm>
+```
+
+### Validation Schema
+```typescript
+// Zod schema for form validation
+const schema = z.object({
+  sectionName: z.object({
+    numberField: z.number().min(0),
+    phoneField: z.string().regex(/^\d{3}-\d{3}-\d{4}$/),
+    emailField: z.string().email(),
+    requiredField: z.string().min(1, "This field is required")
+  })
+});
+
+// Form setup with validation
+const methods = useForm<FormData>({
+  resolver: zodResolver(schema),
+  defaultValues: {
+    sectionName: {
+      numberField: 0,
+      phoneField: '',
+      emailField: '',
+      requiredField: ''
+    }
+  }
+});
+```
 
 ### Layout
 - Sections: [Number of sections]
@@ -109,25 +164,49 @@ interface FieldDefinition {
               type: "email",
               message: "Please enter a valid email address"
             }
+          },
+          {
+            name: "phone",
+            type: "text",
+            label: "Phone Number",
+            required: true,
+            validation: {
+              type: "phone",
+              pattern: "^[0-9]{3}-[0-9]{3}-[0-9]{4}$",
+              message: "Please enter a valid phone number (format: 123-456-7890)"
+            }
           }
         ]
       }
     ]
-  },
-  
-  configuration: {
-    layout: {
-      sections: 3,
-      fieldsPerSection: 5
-    },
-    submitActions: {
-      store: true,
-      email: true,
-      redirect: "/confirmation"
-    }
   }
 }
 ```
+
+## Implementation Requirements
+
+### 1. Form Context
+- ✅ Always wrap form components with FormProvider
+- ✅ Use type-safe form context with proper generics
+- ❌ Never use form hooks without proper context
+
+### 2. Type Safety
+- ✅ Use strictly typed field paths
+- ✅ Define proper types for form data
+- ✅ Use proper typing for validation schema
+- ❌ Avoid generic string types
+
+### 3. Field Handling
+- ✅ Convert and validate all input values
+- ✅ Handle empty states appropriately
+- ✅ Implement proper formatting (e.g., phone numbers)
+- ❌ Don't trust input types without validation
+
+### 4. Error Handling
+- ✅ Use type-safe error handling
+- ✅ Display clear error messages
+- ✅ Handle all validation states
+- ❌ Don't ignore edge cases
 
 ## Usage Instructions
 
