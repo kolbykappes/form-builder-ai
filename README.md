@@ -1,66 +1,63 @@
 # Form Builder
 
-A modern, type-safe form builder application built with Next.js, React, and TypeScript. This project provides a comprehensive pattern for building dynamic forms with validation, storage, and email integration.
+A modern, flexible form builder application that allows users to create, manage, and process dynamic forms with ease.
+
+## Features
+
+- Dynamic form creation and management
+- Real-time validation and error handling
+- Secure form submission and data storage
+- Email notifications and API integrations
+- Performance optimized for large-scale usage
+- Comprehensive testing and monitoring
 
 ## Documentation
 
-The project is built using a well-documented pattern. All implementation details are available in the `docs` folder:
+The project documentation is organized into the following sections:
 
-1. **Getting Started** (`00-getting-started.md`)
-   - Quick start guide
-   - Prerequisites
-   - Setup instructions
+### Core Documentation
+- [Quick Start Guide](docs/00-quick-start-guide.md) - Get started with the form builder
+- [Form Template](docs/00-form-template.md) - Template for creating new forms
+- [Pattern Overview](docs/01-pattern-overview.md) - High-level architecture and patterns
+- [Schema Definition](docs/02-schema-definition.md) - Form schema structure and types
+- [Frontend Components](docs/03-frontend-components.md) - UI components and architecture
+- [Form Management](docs/04-form-management.md) - Form lifecycle and state management
+- [Validation Strategy](docs/05-validation-strategy.md) - Form validation rules and implementation
+- [Backend Processing](docs/06-backend-processing.md) - Form submission handling and processing
+- [Integration Points](docs/07-integration-points.md) - External service integrations
+- [Security Considerations](docs/08-security-considerations.md) - Security measures and best practices
 
-2. **Form Definition** (`01-form-definition.md`)
-   - Template structure
-   - Field definitions
-   - Configuration options
+### Technical Documentation
+- [Deployment Strategy](docs/09-deployment-strategy.md) - Deployment process and environment setup
+- [Testing Strategy](docs/10-testing-strategy.md) - Testing approaches and implementation
+- [Performance Optimization](docs/11-performance-optimization.md) - Performance tuning and monitoring
+- [Project Structure](docs/12-project-structure.md) - Project organization and conventions
+- [Configuration Files](docs/13-configuration-files.md) - Configuration setup and management
+- [Error Handling](docs/14-error-handling.md) - Error management and recovery strategies
 
-3. **Architecture** (`02-architecture-overview.md`)
-   - System architecture
-   - Technical stack
-   - Component structure
+## Getting Started
 
-4. **Implementation Guide** (`03-implementation-guide.md`)
-   - Step-by-step implementation
-   - Code examples
-   - Best practices
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Set up environment variables (see [Configuration Files](docs/13-configuration-files.md))
+4. Start development server: `npm run dev`
+5. Open [http://localhost:3000](http://localhost:3000)
 
-5. **Frontend Implementation** (`04-frontend-implementation.md`)
-   - Component patterns
-   - State management
-   - Validation
+## Development
 
-Additional documentation covers:
-- State management
-- Validation strategy
-- Backend processing
-- Integration patterns
-- Security implementation
-- Deployment strategy
-- Testing approach
-- Performance optimization
-- Project structure
-- Configuration files
-- Error handling
+- Run tests: `npm run test`
+- Lint code: `npm run lint`
+- Format code: `npm run format`
+- Build for production: `npm run build`
 
-## Building from Scratch
+## Contributing
 
-To build this project from scratch:
-
-1. Review the documentation in order
-2. Start with the Getting Started guide
-3. Use the Form Definition template to define your forms
-4. Follow the Implementation Guide for step-by-step instructions
-5. Use the detailed component and pattern documentation for implementation
-
-## Prerequisites
-
-- Node.js (v18 or later)
-- npm or yarn
-- Git
-- Code editor (VS Code recommended)
+1. Fork the repository
+2. Create your feature branch: `git checkout -b feature/amazing-feature`
+3. Commit your changes: `git commit -m 'Add amazing feature'`
+4. Push to the branch: `git push origin feature/amazing-feature`
+5. Open a pull request
 
 ## License
 
-MIT 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
